@@ -1,0 +1,9 @@
+<%= simple_form_for(@ride) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :availability %>
+  <%= f.input :price_per_day, as: :float %>
+  <%= f.submit %>
+<% end %>
