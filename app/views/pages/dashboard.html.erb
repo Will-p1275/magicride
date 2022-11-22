@@ -1,4 +1,4 @@
-<h1>Welcome <%= current_user.first_name %></h1>
+<h1>Welcome <%= current_user.username %></h1>
   <ul>
     <% @my_rides.each do |my_ride| %>
       <li> <%= my_ride.name  %></li>
@@ -7,6 +7,6 @@
 
     <ul>
     <% @my_bookings.each do |my_booking| %>
-      <li> <%= my_booking.name  %></li>
+      <li> <%= my_booking.ride.name  %></li>
     <% end %>
   </ul>
