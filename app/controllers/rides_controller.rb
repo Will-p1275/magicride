@@ -11,9 +11,12 @@ before_action :set_ride, only: [:show, :edit, :update, :destroy]
 
   def create
     @ride = Ride.new(ride_params)
-    @ride.save
-
-    redirect_to ride_path(@ride)
+    @ride.user = current_user
+    if @ride.save
+      redirect_to rides_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show
@@ -41,6 +44,6 @@ before_action :set_ride, only: [:show, :edit, :update, :destroy]
   end
 
   def ride_params
-    params.require(:ride).permit(:name, :category, :description, :address, :availability, :price)
+    params.require(:ride).permit(:name, :category, :description, :address, :availability, :price_per_day)
   end
 end

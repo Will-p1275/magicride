@@ -1,0 +1,10 @@
+<h1>Rides#show</h1>
+<h2><%= ride.name  %></h2>
+<p><%= ride.category %></p>
+<p><%= ride.description %></p>
+<p><%= ride.address %></p>
+<p><%= ride.availability  %></p>
+<p><%= ride.price_per_day %></p>
+
+<%= link_to "Back to the rides", rides_path%>
+<%= link_to "Delete", ride_path(@ride), data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>
