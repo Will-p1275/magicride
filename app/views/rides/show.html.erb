@@ -1,10 +1,19 @@
-<h1>Rides#show</h1>
-<h2><%= ride.name  %></h2>
-<p><%= ride.category %></p>
-<p><%= ride.description %></p>
-<p><%= ride.address %></p>
-<p><%= ride.availability  %></p>
-<p><%= ride.price_per_day %></p>
+<h1><%= @ride.name %></h1>
+<br>
+
+<p><%= @ride.category %></p>
+<p><%= @ride.description %></p>
+<p><%= @ride.address %></p>
+<p><%= @ride.availability  %></p>
+<p><%= @ride.price_per_day %></p>
+<br>
+
+<% if policy(@ride).edit? %>
+  <%= link_to "Edit this ride", edit_ride_path(@ride) %>
+<% end %>
+<br>
+
+<%= link_to "Destroy this ride", @ride, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %>
+<br>
 
 <%= link_to "Back to the rides", rides_path%>
-<%= link_to "Delete", ride_path(@ride), data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} %>

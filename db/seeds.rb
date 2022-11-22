@@ -14,62 +14,64 @@ puts 'cleaning user'
 User.destroy_all
 
 puts 'creating user'
-  User.create(
-    username: "paulineride",
-    email: "pauline@lewagon.com",
-    password: "1234567",
-    age: 25
-  )
 
-  User.create(
-    username: "anneride",
-    email: "anne@lewagon.com",
-    password: "1234567",
-    age: 45
-  )
+user1 = User.create(
+  username: "paulineride",
+  email: "pauline@lewagon.com",
+  password: "1234567",
+  age: 25
+)
 
-  User.create(
-    username: "williamride",
-    email: "william@lewagon.com",
-    password: "1234567",
-    age: 19
-  )
+user2 = User.create(
+  username: "anneride",
+  email: "anne@lewagon.com",
+  password: "1234567",
+  age: 45
+)
 
+user3 = User.create(
+  username: "williamride",
+  email: "william@lewagon.com",
+  password: "1234567",
+  age: 19
+)
+
+users = [user1, user2, user3]
 
 puts 'creating ride'
 10.times do
-  Ride.create(
-    name: Faker::Vehicle.make,
+  Ride.create!(
+    name: "#{Faker::Vehicle.make} #{Faker::Alphanumeric.alpha(number: 5)}",
     category: 'vehicle',
     description: Faker::Vehicle.car_options,
     address: Faker::Address.city,
     availability: true,
     price_per_day: rand(50..100),
-    user_id: rand(1..3)
+    user: users.sample
   )
 end
 
 10.times do
-  Ride.create(
-    name: Faker::Games::Pokemon.name,
+  Ride.create!(
+    name: "#{Faker::Games::Pokemon.name} #{Faker::Alphanumeric.alpha(number: 5)}",
     category: 'pokemon',
     description: Faker::Games::Pokemon.move,
     address: Faker::Address.city,
     availability: true,
     price_per_day: rand(50..100),
-    user_id: rand(1..3)
+    user: users.sample
   )
 end
 
 10.times do
-  Ride.create(
-    name: Faker::Movies::StarWars.vehicle,
+  Ride.create!(
+    name: "#{Faker::Movies::StarWars.vehicle} #{Faker::Alphanumeric.alpha(number: 5)}",
     category: 'starwars',
     description: Faker::Movies::StarWars.wookiee_sentence,
     address: Faker::Address.city,
     availability: true,
     price_per_day: rand(50..100),
-    user_id: rand(1..3)
+    user: users.sample
   )
 end
 

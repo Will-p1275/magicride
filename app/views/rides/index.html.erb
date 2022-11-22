@@ -1,6 +1,11 @@
-<h1>Rides#index</h1>
-<ul>
+<h1>All the rides</h1>
+<ol>
   <% @rides.each do |ride| %>
-  <li> <%= ride.name  %></li>
+    <li>
+      <p><%= ride.name  %> - <%= ride.category  %> - <%= ride.user.username %></p>
+      <%= link_to "details", ride_path(ride) %>
+    </li>
   <% end %>
-</ul>
+</ol>
+
+<%= link_to "Create a ride", new_ride_path %>

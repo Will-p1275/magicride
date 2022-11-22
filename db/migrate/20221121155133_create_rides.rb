@@ -5,7 +5,7 @@ class CreateRides < ActiveRecord::Migration[7.0]
       t.string :category
       t.text :description
       t.string :address
-      t.boolean :availability
+      t.boolean :availability, default: false
       t.float :price_per_day
       t.references :user, null: false, foreign_key: true
 
