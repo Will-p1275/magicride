@@ -1,0 +1,12 @@
+<h1>Welcome <%= current_user.first_name %></h1>
+  <ul>
+    <% @my_rides.each do |my_ride| %>
+      <li> <%= my_ride.name  %></li>
+    <% end %>
+  </ul>
+
+    <ul>
+    <% @my_bookings.each do |my_booking| %>
+      <li> <%= my_booking.name  %></li>
+    <% end %>
+  </ul>
