@@ -14,14 +14,27 @@ puts 'cleaning user'
 User.destroy_all
 
 puts 'creating user'
-3.times do
   User.create(
-    username: Faker::Internet.username,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 8),
-    age: rand(18..100)
+    username: "paulineride",
+    email: "pauline@lewagon.com",
+    password: "1234567",
+    age: 25
   )
-end
+
+  User.create(
+    username: "anneride",
+    email: "anne@lewagon.com",
+    password: "1234567",
+    age: 45
+  )
+
+  User.create(
+    username: "williamride",
+    email: "william@lewagon.com",
+    password: "1234567",
+    age: 19
+  )
+
 
 puts 'creating ride'
 10.times do
