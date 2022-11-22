@@ -4,7 +4,7 @@ class CreateBookings < ActiveRecord::Migration[7.0]
       t.date :starting_date
       t.date :end_date
       t.float :total_price
-      t.boolean :status
+      t.string :status, default: "pending"
       t.references :user, null: false, foreign_key: true
       t.references :ride, null: false, foreign_key: true
 

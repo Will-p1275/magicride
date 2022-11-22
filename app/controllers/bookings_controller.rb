@@ -1,12 +1,14 @@
 class BookingsController < ApplicationController
   def new
     @booking = Booking.new
+    @ride = Ride.find(params[:ride_id])
+    authorize @booking
   end
 
   def create
-    @ride = Ride.find(params[:id])
+    @ride = Ride.find(params[:ride_id])
     @booking = Booking.new(booking_params)
-    days = booking_params[:end_date] - booking_params[:starting_date]
+    days = @booking.end_date - @booking.starting_date
     total_price = days * @ride.price_per_day
     @booking.total_price = total_price
     @booking.ride = @ride
@@ -16,6 +18,7 @@ class BookingsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+    authorize @booking
   end
 
   private
