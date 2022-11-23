@@ -1,0 +1,36 @@
+#cards-container {
+  display: flex;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+  flex-grow: 1;
+}
+
+.cards .btn_gradient {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+#map {
+  width: 50vw;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+#map img {
+  width: 50vw;
+  height: 100vh;
+  object-fit: cover;
+  margin-left: 16px;
+}
+
+.title {
+  display: flex;
+  margin: 10px auto;
+  justify-content: space-between;
+  align-items: center;
+}
