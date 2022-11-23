@@ -1,7 +1,14 @@
-<h1>Create a new booking</h1>
-
-<%= simple_form_for [@ride, @booking] do |f| %>
-  <%= f.input :starting_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit %>
-<% end %>
+<div id="booking-container">
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-12 col-md-6 col-lg-4">
+        <h2>Create a new booking</h2>
+        <%= simple_form_for [@ride, @booking] do |f| %>
+        <%= f.input :starting_date %>
+        <%= f.input :end_date %>
+        <%= f.button :submit, class: "btn_gradient" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

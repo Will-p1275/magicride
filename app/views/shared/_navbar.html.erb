@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="<%= root_path %>">
     <%= image_tag "logo-magic-ride.png", alt:"logo", class:"logo_navbar", id:"logo_navbar" %>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,16 +10,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Rides</a>
+            <%= link_to "Rides", rides_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">username</a>
+            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
           </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#">Sign in</a>
+          <li class="nav-item">
+            <p class="nav-link"><%= current_user.username %></p>
           </li>
 
           <li class="nav-item dropdown">
