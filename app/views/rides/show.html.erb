@@ -29,15 +29,18 @@
   </div>
 
 
+<%unless @ride.user == current_user %>
 <div class="d-flex justify-content-center align-items-center">
   <%= link_to "Make a booking", new_ride_booking_path(@ride),class:"btn_gradient btn_imp" %>
 </div>
-
+<% end %>
 
   <li>
+<%if @ride.user == current_user %>
     <ul><% if policy(@ride).edit? %>
         <%= link_to "Edit this ride", edit_ride_path(@ride), class: "btn_not_important" %>
       <% end %></ul>
     <ul><%= link_to "Destroy this ride", @ride, method: :delete, class: "btn_not_important", data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %></ul>
+  <% end %>
   </li>
 </div>

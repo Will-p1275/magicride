@@ -19,7 +19,9 @@
             <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-              <p class="nav-link">username</p>
+            <%if current_user %>
+              <p class="nav-link"><%=current_user.username %></p>
+            <% end %>
           </li>
 
           <li class="nav-item dropdown">
