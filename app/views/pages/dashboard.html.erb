@@ -11,7 +11,7 @@
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
               <div class="card-product-infos">
                 <h2><%= my_ride.name  %></h2>
-                <p>Product description with <strong>relevant info</strong> only.</p>
+                <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %></strong></p>
               </div>
             </div>
         <% end %>
