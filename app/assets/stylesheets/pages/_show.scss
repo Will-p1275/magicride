@@ -5,7 +5,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 1em;
-
+  margin-top: 10px;
 }
 
 h3 {
@@ -48,6 +48,26 @@ ul {
   display: inline;
 }
 
-li {
+.container li {
   list-style: none;
+  margin: 2em 0;
+}
+
+.btn_not_important {
+  text-decoration: none;
+  color: grey;
+}
+
+.fa-arrow-left {
+  color: grey;
+}
+
+.show {
+  color: white;
+  font-weight: 300px;
+}
+
+.btn_imp {
+  text-align: center;
+  width: 350px;
 }
