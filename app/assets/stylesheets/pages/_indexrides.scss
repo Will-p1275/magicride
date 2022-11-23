@@ -30,7 +30,24 @@
 
 .title {
   display: flex;
-  margin: 10px auto;
+  margin: 0px auto;
+  padding: 10px 0px;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: block;
+  }
+  #map {
+    height: min-content;
+    width: 100vw;
+  }
+}
+
+@media (max-width: 576px) {
+  #map {
+    display: none;
+  }
 }

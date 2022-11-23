@@ -3,7 +3,7 @@
 }
 
 .btn_gradient {
-  background-image: linear-gradient(45deg, #315bcf, #1EAE98);
+  background-image: linear-gradient(45deg, rgb(0, 235, 158), rgb(0, 198, 242));
   color: white;
   padding: 12px 26px;
   border-radius: 40px;
@@ -14,7 +14,7 @@
 
 .btn_gradient:hover {
   color: white;
-  background-image: linear-gradient(45deg, #315bcf, #1EAE98);
+  background-image: linear-gradient(45deg, rgb(0, 235, 158), rgb(0, 198, 242));
   opacity: 1;
 }
 
