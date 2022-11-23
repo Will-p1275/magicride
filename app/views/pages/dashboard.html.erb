@@ -35,7 +35,7 @@
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
                     <h2><%= my_booking.ride.name  %></h2>
-                    <p>Product description with <strong>relevant info</strong> only.</p>
+                    <p><%= my_booking.ride.category  %> - <strong>€ <%= my_booking.total_price  %></strong></p>
                   </div>
                 </div>
             <% end %>
@@ -43,7 +43,6 @@
         </div>
       </div>
     </div>
-    <%# <p><strong>My Rides :</strong></p>
-    <p class="mt-5"><strong>My Booking :</strong></p> %>
+
   </div>
 </div>
