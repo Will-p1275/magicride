@@ -1,12 +1,35 @@
-<h1>Welcome <%= current_user.username %></h1>
-  <ul>
-    <% @my_rides.each do |my_ride| %>
-      <li> <%= my_ride.name  %></li>
-    <% end %>
-  </ul>
-
-    <ul>
-    <% @my_bookings.each do |my_booking| %>
-      <li> <%= my_booking.ride.name  %></li>
-    <% end %>
-  </ul>
+<div class="container mt-5">
+  <div>
+    <h1>Welcome <%= current_user.username %></h1>
+  </div>
+  <div>
+    <p><strong>My Rides :</strong></p>
+    <div class="cards-product">
+      <% @my_rides.each do |my_ride| %>
+        <%= link_to ride_path(my_ride) do %>
+            <div class="card-product mt-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2><%= my_ride.name  %></h2>
+                <p>Product description with <strong>relevant info</strong> only.</p>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+    <p class="mt-5"><strong>My Booking :</strong></p>
+    <div class="cards-product">
+      <% @my_bookings.each do |my_booking| %>
+        <%= link_to ride_path(my_ride) do %>
+            <div class="card-product mt-5">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2><%= my_booking.ride.name  %></h2>
+                <p>Product description with <strong>relevant info</strong> only.</p>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
