@@ -1,7 +1,12 @@
 #booking-container {
-  border: solid 1px gainsboro;
+  border: solid 1px rgba(220, 220, 220, 0.604);
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   background-color: white;
+  margin-top: 16px;
+}
+
+input.btn.btn_gradient {
+  width: 100%;
 }
