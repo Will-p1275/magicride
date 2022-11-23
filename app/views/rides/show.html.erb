@@ -1,21 +1,38 @@
-<h1><%= @ride.name %></h1>
-<br>
+<div class="container">
 
-<p><%= @ride.category %></p>
-<p><%= @ride.description %></p>
-<p><%= @ride.address %></p>
-<p><%= @ride.availability  %></p>
-<p><%= @ride.price_per_day %></p>
-<br>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://plus.unsplash.com/premium_photo-1664298030301-94b00217fbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80)">
+    <h1><%= @ride.name %></h1>
+    <br>
+  </div>
+  <div class="cat">
+    <h3>Category : </h3> <p><%= @ride.category %></p>
+  </div>
 
-<% if policy(@ride).edit? %>
-  <%= link_to "Edit this ride", edit_ride_path(@ride) %>
-<% end %>
-<br>
+  <div class="desc">
+    <h3>Description : </h3> <p><%= @ride.description %></p>
+  </div>
 
-<%= link_to "Destroy this ride", @ride, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %>
-<br>
+  <div class="address">
+    <h3>Address : </h3> <p><%= @ride.address %></p>
+  </div>
 
-<%= link_to "Back to the rides", rides_path%>
+  <div class="avail">
+    <h3>Availability : </h3> <p><%= @ride.availability  %></p>
+  </div>
 
-<%= link_to "Make a booking", new_ride_booking_path(@ride)%>
+  <div class="price">
+  <h3>Price : </h3> <p><%= @ride.price_per_day %>€</p>
+  </div>
+
+  <% if policy(@ride).edit? %>
+    <%= link_to "Edit this ride", edit_ride_path(@ride), class: “btn_gradient” %>
+  <% end %>
+  <br>
+
+  <%= link_to "Destroy this ride", @ride, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy?, class: “btn_gradient” %>
+  <br>
+
+  <%= link_to "Back to the rides", rides_path, class: “btn_gradient”%>
+
+  <%= link_to "Make a booking", new_ride_booking_path(@ride), class: “btn_gradient”%>
+</div>
