@@ -1,5 +1,5 @@
 .container {
-  margin: auto;
+  height: 75vh;
 }
 
 .card-category {
@@ -46,4 +46,8 @@ h3 {
 
 ul {
   display: inline;
+}
+
+li {
+  list-style: none;
 }
