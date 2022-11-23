@@ -24,15 +24,13 @@
   <h3>Price : </h3> <p><%= @ride.price_per_day %>€</p>
   </div>
 
-  <% if policy(@ride).edit? %>
-    <%= link_to "Edit this ride", edit_ride_path(@ride), class: “btn_gradient” %>
-  <% end %>
-  <br>
+  <li>
+    <ul><% if policy(@ride).edit? %>
+        <%= link_to "Edit this ride", edit_ride_path(@ride), class: "btn_gradient" %>
+      <% end %></ul>
+    <ul><%= link_to "Destroy this ride", @ride, method: :delete, class: "btn_gradient", data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %></ul>
+    <ul><%= link_to "Back to the rides", rides_path, class: "btn_gradient" %></ul>
+    <ul>  <%= link_to "Make a booking", new_ride_booking_path(@ride), class: "btn_gradient" %></ul>
+  </li>
 
-  <%= link_to "Destroy this ride", @ride, method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy?, class: “btn_gradient” %>
-  <br>
-
-  <%= link_to "Back to the rides", rides_path, class: “btn_gradient”%>
-
-  <%= link_to "Make a booking", new_ride_booking_path(@ride), class: “btn_gradient”%>
 </div>
