@@ -20,7 +20,7 @@
     <p class="mt-5"><strong>My Booking :</strong></p>
     <div class="cards-product">
       <% @my_bookings.each do |my_booking| %>
-        <%= link_to ride_path(my_ride) do %>
+        <%= link_to ride_path(my_booking) do %>
             <div class="card-product mt-5">
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
               <div class="card-product-infos">
