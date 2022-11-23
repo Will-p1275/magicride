@@ -3,33 +3,46 @@
     <h1>Welcome <%= current_user.username %></h1>
   </div>
   <div>
-    <p><strong>My Rides :</strong></p>
-    <div class="cards-product">
-      <% @my_rides.each do |my_ride| %>
-        <%= link_to ride_path(my_ride) do %>
-            <div class="card-product mt-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-product-infos">
-                <h2><%= my_ride.name  %></h2>
-                <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %></strong></p>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="rides-tab" data-bs-toggle="tab" data-bs-target="#rides-tab-pane" type="button" role="tab" aria-controls="rides-tab-pane" aria-selected="true">My rides</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">My Booking</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="rides-tab-pane" role="tabpanel" aria-labelledby="rides-tab" tabindex="0">
+        <div class="cards-product">
+          <% @my_rides.each do |my_ride| %>
+            <%= link_to ride_path(my_ride) do %>
+                <div class="card-product mt-3">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <div class="card-product-infos">
+                    <h2><%= my_ride.name  %></h2>
+                    <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %></strong></p>
+                  </div>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+        <div class="cards-product">
+          <% @my_bookings.each do |my_booking| %>
+            <%= link_to ride_path(my_booking) do %>
+                <div class="card-product mt-5">
+                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <div class="card-product-infos">
+                    <h2><%= my_booking.ride.name  %></h2>
+                    <p><%= my_booking.ride.category  %> - <strong>€ <%= my_booking.total_price  %></strong></p>
+                  </div>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
-    <p class="mt-5"><strong>My Booking :</strong></p>
-    <div class="cards-product">
-      <% @my_bookings.each do |my_booking| %>
-        <%= link_to ride_path(my_booking) do %>
-            <div class="card-product mt-5">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-product-infos">
-                <h2><%= my_booking.ride.name  %></h2>
-                <p>Product description with <strong>relevant info</strong> only.</p>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
-    </div>
+
   </div>
 </div>
