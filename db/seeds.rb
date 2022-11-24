@@ -21,7 +21,7 @@ user1 = User.create(
   email: "pauline@lewagon.com",
   password: "1234567",
   age: 25,
-  # image_url: "https://avatars.githubusercontent.com/u/106176972?v=4"
+  image_url: "https://avatars.githubusercontent.com/u/106176972?v=4"
 )
 
 user2 = User.create(
@@ -29,7 +29,7 @@ user2 = User.create(
   email: "anne@lewagon.com",
   password: "1234567",
   age: 45,
-  # image_url: "https://avatars.githubusercontent.com/u/109987907?v=4"
+  image_url: "https://avatars.githubusercontent.com/u/109987907?v=4"
 )
 
 user3 = User.create(
@@ -37,7 +37,7 @@ user3 = User.create(
   email: "william@lewagon.com",
   password: "1234567",
   age: 19,
-  # image_url: "https://avatars.githubusercontent.com/u/115219328?v=4"
+  image_url: "https://avatars.githubusercontent.com/u/115219328?v=4"
 )
 
 users = [user1, user2, user3]
