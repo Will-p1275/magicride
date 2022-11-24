@@ -11,8 +11,7 @@
 @import "components/index";
 @import "pages/index";
 
-.wrapper{
+.wrapper {
   min-height: calc(100vh - 50px - 100px);
   background-image: linear-gradient(45deg, rgba(0, 235, 158, 0.15), rgba(0, 198, 242, 0.15));
-  padding: 10px, 0;
 }
