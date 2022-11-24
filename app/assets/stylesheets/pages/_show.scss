@@ -50,7 +50,7 @@ ul {
 
 .container li {
   list-style: none;
-  margin: 2em 0;
+  padding: 2em;
 }
 
 .btn_not_important {
@@ -60,11 +60,11 @@ ul {
 
 .fa-arrow-left {
   color: grey;
+  margin-top: 15px;
 }
 
 .show {
   color: white;
-  font-weight: 300px;
 }
 
 .btn_imp {
