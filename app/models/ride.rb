@@ -6,6 +6,7 @@ class Ride < ApplicationRecord
   validates :address, presence: true
   # validates :availability, presence: true
   validates :price_per_day, presence: true, numericality: { greater_than: 0 }
+  has_one_attached :photo
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end

@@ -3,11 +3,14 @@
   <%= f.input :category, collection: ['Magical Creatures', 'Spaceships', 'Unusual vehicles'] %>
   <%= f.input :description %>
   <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
+  <%= f.input :availability %>
 
 <div class="form-check form-switch">
   <%= f.input :availability, as: :boolean, class: "form-check-input" %>
   <%# <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> %>
 </div>
+
   <%= f.input :price_per_day, as: :float %>
   <%= f.submit %>
 <% end %>
