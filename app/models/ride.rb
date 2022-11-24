@@ -1,6 +1,6 @@
 class Ride < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :category, inclusion: { in: ['Magical Creatures', 'Spaceships', 'Unusual vehicles'] }
   validates :address, presence: true
