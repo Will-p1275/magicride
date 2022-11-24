@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: { minimum: 7 }
   validates :age, numericality: { only_integer: true, greater_than_or_equal_to: 18 }
-
+  has_one_attached :photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
