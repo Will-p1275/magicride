@@ -1,21 +1,21 @@
 <div class="container">
-<i class="fa-solid fa-arrow-left"></i>
+    <i class="fa-solid fa-arrow-left"></i>
     <%= link_to "Back to the rides", rides_path, class: "btn_not_important" %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://plus.unsplash.com/premium_photo-1664298030301-94b00217fbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80)">
     <h1 class="show"><%= @ride.name %></h1>
     <br>
   </div>
   <div class="cat">
-    <p><strong>Category :</strong>  <%= @ride.category %></p>
+    <p><strong>Category :</strong>&nbsp;<%= @ride.category %></p>
   </div>
 
   <div class="desc">
-    <p><strong>Description :</strong><%= @ride.description %></p>
+    <p><strong>Description :</strong>&nbsp;<%= @ride.description %></p>
   </div>
 
   <div class="address">
     <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
-    <p><strong>Address :</strong><%= @ride.address %></p>
+    <p><strong>Address :</strong>&nbsp;<%= @ride.address %></p>
   </div>
 
   <div class="photo">
@@ -25,12 +25,12 @@
 
   <div class="avail">
     <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
-    <p><strong>Availability :</strong><%= @ride.availability  %></p>
+    <p><strong>Availability :</strong>&nbsp;<%= @ride.availability  %></p>
   </div>
 
   <div class="price">
     <i class="fa-solid fa-coins"></i>&nbsp;&nbsp;
-    <p><strong>Price :</strong><%= @ride.price_per_day %>€</p>
+    <p><strong>Price :</strong>&nbsp;<%= @ride.price_per_day %>€</p>
   </div>
 
 

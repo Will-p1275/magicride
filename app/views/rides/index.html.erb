@@ -27,8 +27,15 @@
       <% end %>
     </div>
 
-    <div id="map">
-      <img src="https://developers.arcgis.com/documentation/static/display-a-map-b4974c7cfef498eb43e99ab60191cbaf.png" alt="map">
+    <%# Adding a div to display geocoded map instead of previous map img placeholder%>
+    <div id="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+
+    <%# <div id="map">
+      <img src="https://developers.arcgis.com/documentation/static/display-a-map-b4974c7cfef498eb43e99ab60191cbaf.png" alt="map">
+    </div> %>
   </div>
 </div>

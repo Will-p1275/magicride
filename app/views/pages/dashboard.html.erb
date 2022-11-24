@@ -10,13 +10,16 @@
         <li class="nav-item" role="presentation">
           <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">My Booking</button>
         </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" type="button" role="tab" aria-controls="requests-tab-pane" aria-selected="false">My Request</button>
+        </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="rides-tab-pane" role="tabpanel" aria-labelledby="rides-tab" tabindex="0">
-        <div class="cards-product">
+        <div class="cards-product mt-5 mb-5">
           <% @my_rides.each do |my_ride| %>
             <%= link_to ride_path(my_ride) do %>
-                <div class="card-product mt-3">
+                <div class="card-product">
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
                     <h2><%= my_ride.name  %></h2>
@@ -28,19 +31,56 @@
         </div>
       </div>
       <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
-        <div class="cards-product">
+        <div class="cards-product mt-5 mb-5">
           <% @my_bookings.each do |my_booking| %>
-            <%= link_to ride_path(my_booking) do %>
-                <div class="card-product mt-5">
+            <div class="position-relative">
+              <%= link_to ride_booking_path(my_booking.ride_id, my_booking.id) do %>
+                  <div class="card-product">
+                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <div class="card-product-infos">
+                      <h2><%= my_booking.ride.name  %></h2>
+                      <p><%= my_booking.ride.category  %> - <strong>€ <%= my_booking.total_price  %></strong></p>
+                    </div>
+                    <% if my_booking.status == 'pending' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> ?
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% elsif my_booking.status == 'accepted' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> OK
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% elsif my_booking.status == 'refused' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> NO
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% end %>
+                  </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="tab-pane fade" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+        <div class="cards-product mt-5 mb-5">
+          <% @my_requests.each do |my_request| %>
+            <%= link_to ride_booking_path(my_request.ride_id, my_request.id) do %>
+                <div class="card-product">
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
-                    <h2><%= my_booking.ride.name  %></h2>
-                    <p><%= my_booking.ride.category  %> - <strong>€ <%= my_booking.total_price  %></strong></p>
+                    <h2><%= my_request.ride.name  %></h2>
+                    <p><%= my_request.ride.category  %> - <strong>€ <%= my_request.total_price  %></strong></p>
                   </div>
                 </div>
             <% end %>
           <% end %>
         </div>
+
+
+
+
+
+
+
       </div>
     </div>
 
