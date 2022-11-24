@@ -17,4 +17,12 @@ class BookingPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def accept?
+    Ride.find(record.ride_id).user_id == user.id
+  end
+
+  def refuse?
+    Ride.find(record.ride_id).user_id == user.id
+  end
 end

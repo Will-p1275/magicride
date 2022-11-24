@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :rides
   has_many :bookings
+
+  has_many :requested_bookings, through: :rides, source: :bookings
   validates :username, uniqueness: true
   validates :email, uniqueness: true
   validates :password, length: { minimum: 7 }

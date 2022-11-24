@@ -2,35 +2,53 @@
   <div class="dashboard-title">
     <h1>Welcome <%= current_user.username %></h1>
   </div>
+
   <div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="rides-tab" data-bs-toggle="tab" data-bs-target="#rides-tab-pane" type="button" role="tab" aria-controls="rides-tab-pane" aria-selected="true">My rides</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">My Booking</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="requests-tab" data-bs-toggle="tab" data-bs-target="#requests-tab-pane" type="button" role="tab" aria-controls="requests-tab-pane" aria-selected="false">My Request</button>
-        </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My Requests</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My Bookings</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">My Rides</button>
+      </li>
     </ul>
+
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="rides-tab-pane" role="tabpanel" aria-labelledby="rides-tab" tabindex="0">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="cards-product mt-5 mb-5">
-          <% @my_rides.each do |my_ride| %>
-            <%= link_to ride_path(my_ride) do %>
+          <% @my_requests.each do |my_request| %>
+            <%= link_to ride_booking_path(my_request.ride_id, my_request.id) do %>
+              <div class="position-relative">
                 <div class="card-product">
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
-                    <h2><%= my_ride.name  %></h2>
-                    <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %></strong></p>
+                    <h2><%= my_request.ride.name  %></h2>
+                    <p><%= my_request.ride.category  %> - <strong>€ <%= my_request.total_price  %></strong></p>
                   </div>
+                  <% if my_request.status == 'pending' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> ?
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% elsif my_request.status == 'accepted' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> OK
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% elsif my_request.status == 'refused' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> NO
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% end %>
                 </div>
+              </div>
             <% end %>
           <% end %>
         </div>
       </div>
-      <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <div class="cards-product mt-5 mb-5">
           <% @my_bookings.each do |my_booking| %>
             <div class="position-relative">
@@ -50,7 +68,7 @@
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% elsif my_booking.status == 'refused' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> NO
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> NO
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% end %>
@@ -59,28 +77,22 @@
             </div>
           <% end %>
         </div>
+      </div>
 
-        <div class="tab-pane fade" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <div class="cards-product mt-5 mb-5">
-          <% @my_requests.each do |my_request| %>
-            <%= link_to ride_booking_path(my_request.ride_id, my_request.id) do %>
+          <% @my_rides.each do |my_ride| %>
+            <%= link_to ride_path(my_ride) do %>
                 <div class="card-product">
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
-                    <h2><%= my_request.ride.name  %></h2>
-                    <p><%= my_request.ride.category  %> - <strong>€ <%= my_request.total_price  %></strong></p>
+                    <h2><%= my_ride.name  %></h2>
+                    <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %></strong></p>
                   </div>
                 </div>
             <% end %>
           <% end %>
         </div>
-
-
-
-
-
-
-
       </div>
     </div>
 
