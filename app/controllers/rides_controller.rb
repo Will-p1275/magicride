@@ -8,7 +8,9 @@ class RidesController < ApplicationController
     @markers = @rides.geocoded.map do |ride|
       {
         lat: ride.latitude,
-        lng: ride.longitude
+        lng: ride.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {ride: ride}),
+        image_url: helpers.asset_url("round-marker")
       }
     end
   end
@@ -30,6 +32,10 @@ class RidesController < ApplicationController
   end
 
   def show
+    authorize @ride
+  end
+
+  def edit
     authorize @ride
   end
 

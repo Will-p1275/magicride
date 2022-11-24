@@ -20,21 +20,24 @@ user1 = User.create(
   username: "paulineride",
   email: "pauline@lewagon.com",
   password: "1234567",
-  age: 25
+  age: 25,
+  # image_url: "https://avatars.githubusercontent.com/u/106176972?v=4"
 )
 
 user2 = User.create(
   username: "anneride",
   email: "anne@lewagon.com",
   password: "1234567",
-  age: 45
+  age: 45,
+  # image_url: "https://avatars.githubusercontent.com/u/109987907?v=4"
 )
 
 user3 = User.create(
   username: "williamride",
   email: "william@lewagon.com",
   password: "1234567",
-  age: 19
+  age: 19,
+  # image_url: "https://avatars.githubusercontent.com/u/115219328?v=4"
 )
 
 users = [user1, user2, user3]
