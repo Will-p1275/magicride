@@ -18,6 +18,11 @@
     <p><strong>Address :</strong><%= @ride.address %></p>
   </div>
 
+  <div class="photo">
+    <%= cl_image_tag @ride.photo.key, height: 300, width: 400, crop: :fill %>
+
+  </div>
+
   <div class="avail">
     <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
     <p><strong>Availability :</strong><%= @ride.availability  %></p>
