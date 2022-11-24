@@ -33,6 +33,10 @@ class RidesController < ApplicationController
     authorize @ride
   end
 
+  def edit
+    authorize @ride
+  end
+
   def update
     @ride.update(ride_params)
     redirect_to ride_path(@ride)
