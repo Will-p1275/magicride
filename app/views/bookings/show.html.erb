@@ -29,9 +29,8 @@
   </div>
 
   <li>
-  <%if @ride.user == current_user %>
-    <%= link_to "Accept this booking", @booking, method: :update, class: "btn_not_important", data: { turbo_method: :update, turbo_confirm: "Are you sure ?"} if policy(@ride).update? %></ul>
-    <%= link_to "Reject this booking", @booking, method: :update, class: "btn_not_important", data: { turbo_method: :update, turbo_confirm: "Are you sure ?"} if policy(@ride).update? %></ul>
-  <% end %>
+    <ul><%= link_to "Accept this booking", accept_path(@booking), class: "btn_not_important", data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } if policy(@booking).accept? %></ul>
+    <ul><%= link_to "Refuse this booking", refuse_path(@booking), class: "btn_not_important", data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } if policy(@booking).refuse? %></ul>
   </li>
+
 </div>

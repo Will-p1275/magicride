@@ -26,18 +26,20 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def edit
-    @booking = Booking.find(params[:id])
-    redirect_to ride_booking_path(@booking.ride_id, @booking.id)
-    # authorize
-  end
-
-  def update
+  def accept
     @booking = Booking.find(params[:id])
     @booking.status = "accepted"
+    @booking.save
+    redirect_to dashboard_path
+    authorize @booking
+  end
+
+  def refuse
+    @booking = Booking.find(params[:id])
     @booking.status = "refused"
-    # on reste sur la show de booking
-    # authorize
+    @booking.save
+    redirect_to dashboard_path
+    authorize @booking
   end
 
   private
