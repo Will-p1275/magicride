@@ -1,12 +1,12 @@
 class BookingsController < ApplicationController
+  before_action :set_ride, only: [:new, :create, :show]
+
   def new
     @booking = Booking.new
-    @ride = Ride.find(params[:ride_id])
     authorize @booking
   end
 
   def create
-    @ride = Ride.find(params[:ride_id])
     @booking = Booking.new(booking_params)
     days = @booking.end_date - @booking.starting_date
     total_price = days * @ride.price_per_day
@@ -21,7 +21,30 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
+  def edit
+    @booking = Booking.find(params[:id])
+    redirect_to ride_booking_path(@booking.ride_id, @booking.id)
+    # authorize
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.status = "refused"
+    # on reste sur la show de booking
+    # authorize
+  end
+
   private
+
+  def set_ride
+    @ride = Ride.find(params[:ride_id])
+  end
 
   def booking_params
     params.require(:booking).permit(:starting_date, :end_date)
