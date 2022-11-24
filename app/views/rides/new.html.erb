@@ -1,2 +1,18 @@
-<h1>Create a new ride !</h1>
-<%= render "form", ride: @ride %>
+<div class="back-to-rides-new">
+<i class="fa-solid fa-arrow-left"></i>
+<%= link_to "Back to the rides", rides_path, class: "btn_not_important" %>
+</div>
+
+<div class="container-form flex-container">
+  <div class="card-form">
+    <h2>Create a new ride !</h1>
+    <div class="form-new">
+      <%= render "form", ride: @ride %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "bla", rides_path, class: "space-bottom" %>
+<br>
+<%= link_to "bla", rides_path, class: "space-bottom" %>
+<br>
