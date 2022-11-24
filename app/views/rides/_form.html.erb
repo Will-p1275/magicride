@@ -1,13 +1,15 @@
 <%= simple_form_for(@ride) do |f| %>
   <%= f.input :name %>
-  <%= f.input :category, collection: ['Magical Creatures', 'Spaceships', 'Unusual vehicles'] %>
+  <%= f.input :category, prompt: "Choose a category", collection: ['Magical Creatures', 'Spaceships', 'Unusual vehicles'] %>
   <%= f.input :description %>
   <%= f.input :address %>
+  <%= f.input :photo, as: :file %>
 
 <div class="form-check form-switch">
   <%= f.input :availability, as: :boolean, class: "form-check-input" %>
   <%# <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label> %>
 </div>
+
   <%= f.input :price_per_day, as: :float %>
-  <%= f.submit %>
+  <%= f.submit class:"btn btn_gradient"%>
 <% end %>

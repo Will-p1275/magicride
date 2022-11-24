@@ -1,7 +1,6 @@
 class User < ApplicationRecord
-  has_many :rides
-  has_many :bookings
-
+  has_many :rides, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many :requested_bookings, through: :rides, source: :bookings
   validates :username, uniqueness: true
   validates :email, uniqueness: true

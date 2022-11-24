@@ -4,6 +4,13 @@ class RidesController < ApplicationController
 
   def index
     @rides = policy_scope(Ride)
+    # Iteration for geocoding so we can display markers on map for each ride
+    @markers = @rides.geocoded.map do |ride|
+      {
+        lat: ride.latitude,
+        lng: ride.longitude
+      }
+    end
   end
 
   def new
@@ -45,6 +52,6 @@ class RidesController < ApplicationController
   end
 
   def ride_params
-    params.require(:ride).permit(:name, :category, :description, :address, :availability, :price_per_day)
+    params.require(:ride).permit(:name, :category, :description, :address, :photo, :availability, :price_per_day)
   end
 end

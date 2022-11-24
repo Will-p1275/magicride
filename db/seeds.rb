@@ -9,6 +9,7 @@ require 'faker'
 
 # ride : nom, category, description, addresse, availability (default true), price_per_day, user_id
 puts "cleaning db"
+Booking.destroy_all
 Ride.destroy_all
 puts 'cleaning user'
 User.destroy_all
