@@ -19,3 +19,12 @@
   margin-left:1em;
   padding-bottom: 1em;
 }
+
+.form-check-input.is-valid:checked {
+  background-color: #a3f4d3;
+  border-color: #a0eaea;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: #0e0000;
+}
