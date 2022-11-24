@@ -5,11 +5,29 @@
     <div class="col-12 col-md-8 col-lg-6">
     <div id="booking-container">
       <h2>Create a new booking</h2>
-      <%= simple_form_for [@ride, @booking] do |f| %>
-      <%= f.input :starting_date %>
-      <%= f.input :end_date %>
+      <%= simple_form_for [@ride, @booking],
+                    html: {
+                      data: {
+                        controller: 'flatpickr'
+                      }
+                    } do |f| %>
+      <%= f.input :starting_date, label: "Dates",
+                  as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'startDateInput',
+                    } } %>
+      <%= f.input :end_date, label: false,
+                  as: :string,
+                  input_html: {
+                    class: 'd-none',
+                    data: {
+                      flatpickr_target: 'endDateInput'
+                    }
+                  } %>
       <%= f.button :submit, class: "btn_gradient" %>
       <% end %>
+
     </div>
     </div>
   </div>
