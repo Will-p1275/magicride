@@ -1,22 +1,29 @@
-<div class="container">
+<div class="container show-cont">
     <i class="fa-solid fa-arrow-left"></i>
     <%= link_to "Back to the rides", rides_path, class: "btn_not_important" %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://plus.unsplash.com/premium_photo-1664298030301-94b00217fbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80)">
-    <h1 class="show"><%= @ride.name %></h1>
+    <% if @ride.category == "Spaceships" %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1639262498805-17c7dc422d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)">
+    <% elsif @ride.category == "Magical Creatures"  %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/2650468/pexels-photo-2650468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); background-position: top -245px left -55px;">
+    <% else %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)">
+    <% end %>
+
     <br>
   </div>
-  <div class="cat">
-    <p><strong>Category :</strong>&nbsp;<%= @ride.category %></p>
-  </div>
+  <h1 class="show"><%= @ride.name %></h1>
 
-  <div class="desc">
-    <p><strong>Description :</strong>&nbsp;<%= @ride.description %></p>
-  </div>
+  <div class="container-col d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 one-col">
+        <div class="cat">
+          <p><strong>Category :</strong>&nbsp;<%= @ride.category %></p>
+        </div>
 
-  <div class="address">
-    <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
-    <p><strong>Address :</strong>&nbsp;<%= @ride.address %></p>
-  </div>
+        <div class="desc">
+          <p><strong>Description :</strong>&nbsp;<%= @ride.description %></p>
+        </div>
+
 
   <div class="photo">
     <% if @ride.photo.attached? %>
@@ -24,33 +31,54 @@
     <% else %>
       <img src="https://images.unsplash.com/photo-1503914068268-5413b35b45ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
     <% end %>
+        <div class="address">
+          <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
+          <p><strong>Address :</strong>&nbsp;<%= @ride.address %></p>
+        </div>
 
 
+        <div class="avail">
+          <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
+          <p><strong>Availability :</strong>&nbsp;<%= @ride.availability  %></p>
+        </div>
+
+        <div class="price">
+          <i class="fa-solid fa-coins"></i>&nbsp;&nbsp;
+          <p><strong>Price :</strong>&nbsp;€<%= @ride.price_per_day %></p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="photo">
+          <% if @ride.photo.attached? %>
+            <%= cl_image_tag @ride.photo.key, height: 150, width: 200, crop: :fill %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1503914068268-5413b35b45ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" style='height: 100%; width: 100%; object-fit: contain; border-radius: 8px;'/>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="avail">
-    <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
-    <p><strong>Availability :</strong>&nbsp;<%= @ride.availability  %></p>
-  </div>
 
-  <div class="price">
-    <i class="fa-solid fa-coins"></i>&nbsp;&nbsp;
-    <p><strong>Price :</strong>&nbsp;<%= @ride.price_per_day %>€</p>
-  </div>
 
 
 <%unless @ride.user == current_user %>
 <div class="d-flex justify-content-center align-items-center">
-  <%= link_to "Make a booking", new_ride_booking_path(@ride),class:"btn_gradient btn_imp" %>
+  <%= link_to "Let's ride it", new_ride_booking_path(@ride),class:"btn_gradient btn_imp" %>
 </div>
 <% end %>
 
   <li>
 <%if @ride.user == current_user %>
     <ul><% if policy(@ride).edit? %>
-        <%= link_to "Edit this ride", edit_ride_path(@ride), class: "btn_not_important" %>
+        <%= link_to "Modify this ride", edit_ride_path(@ride), class: "btn_not_important" %>
       <% end %></ul>
-    <ul><%= link_to "Destroy this ride", @ride, method: :delete, class: "btn_not_important", data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %></ul>
+    <ul><%= link_to "Delete this ride", @ride, method: :delete, class: "btn_not_important", data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %></ul>
   <% end %>
   </li>
 </div>
+
+<%= link_to "bla", rides_path, class: "space-bottom" %>
+<br>
+<%= link_to "bla", rides_path, class: "space-bottom" %>
+<br>
