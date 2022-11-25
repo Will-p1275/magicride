@@ -1,47 +1,35 @@
 <div class="container show-cont">
-    <i class="fa-solid fa-arrow-left"></i>
-    <%= link_to "Back to the rides", rides_path, class: "btn_not_important" %>
-    <% if @ride.category == "Spaceships" %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1639262498805-17c7dc422d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)">
-    <% elsif @ride.category == "Magical Creatures"  %>
+  <i class="fa-solid fa-arrow-left"></i>
+  <%= link_to "Back to the rides", rides_path, class: "btn_not_important" %>
+  <% if @ride.category == "Spaceships" %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1639262498805-17c7dc422d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)"">
+    <% elsif @ride.category == "Magical Creatures" %>
+  </div>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/2650468/pexels-photo-2650468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); background-position: top -245px left -55px;">
     <% else %>
+  </div>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)">
     <% end %>
-
-    <br>
   </div>
-  <h1 class="show"><%= @ride.name %></h1>
 
+  <h1 class="show"><%= @ride.name %></h1>
   <div class="container-col d-flex justify-content-center align-items-center">
     <div class="row">
       <div class="col-sm-12 col-lg-6 one-col">
         <div class="cat">
           <p><strong>Category :</strong>&nbsp;<%= @ride.category %></p>
         </div>
-
         <div class="desc">
           <p><strong>Description :</strong>&nbsp;<%= @ride.description %></p>
         </div>
-
-
-  <div class="photo">
-    <% if @ride.photo.attached? %>
-      <%= cl_image_tag @ride.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-      <img src="https://images.unsplash.com/photo-1503914068268-5413b35b45ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
-    <% end %>
         <div class="address">
           <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
           <p><strong>Address :</strong>&nbsp;<%= @ride.address %></p>
         </div>
-
-
         <div class="avail">
           <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
           <p><strong>Availability :</strong>&nbsp;<%= @ride.availability  %></p>
         </div>
-
         <div class="price">
           <i class="fa-solid fa-coins"></i>&nbsp;&nbsp;
           <p><strong>Price :</strong>&nbsp;€<%= @ride.price_per_day %></p>
@@ -58,25 +46,42 @@
       </div>
     </div>
   </div>
+  <%unless @ride.user == current_user %>
+    <div class="form mt-5 mx-auto">
+      <h2>Book your ride</h2>
+      <%= simple_form_for [@ride, @booking],
+                    html: {
+                      data: {
+                        controller: 'flatpickr'
+                      }
+                    } do |f| %>
+      <%= f.input :starting_date, label: "Dates",
+                  as: :string,
+                  input_html: {
+                    data: {
+                      flatpickr_target: 'startDateInput',
+                    } } %>
+      <%= f.input :end_date, label: false,
+                  as: :string,
+                  input_html: {
+                    class: 'd-none',
+                    data: {
+                      flatpickr_target: 'endDateInput'
+                    }
+                  } %>
+      <%= f.button :submit, "Let'ride", class: "btn_gradient" %>
+      <% end %>
+    </div>
+  <% end %>
 
-
-
-
-<%unless @ride.user == current_user %>
-  <div class="d-flex justify-content-center align-items-center">
-    <%= link_to "Let's ride it", new_ride_booking_path(@ride),class:"btn_gradient btn_imp" %>
-  </div>
-
-
-<% end %>
 
   <li>
-<%if @ride.user == current_user %>
+  <%if @ride.user == current_user %>
     <ul><% if policy(@ride).edit? %>
         <%= link_to "Modify this ride", edit_ride_path(@ride), class: "btn_not_important" %>
-      <% end %></ul>
+        <% end %></ul>
     <ul><%= link_to "Delete this ride", @ride, method: :delete, class: "btn_not_important", data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %></ul>
-  <% end %>
+    <% end %>
   </li>
 </div>
 
