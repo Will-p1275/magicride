@@ -74,15 +74,15 @@ troll = Ride.create(
   user: users.sample
 )
 
-    ninjaTurtle = Ride.create(
-      name: 'Greeny Ninja Turle',
-      category: 'Magical Creatures',
-      description: 'Ride Turtle Ninja Greeny. Greeny is a true clone from the tv-series. It has been created and brought to life by a scientist expert in creating magical creatures from movies and tv-series.',
-      address: '50, avenue Pasteur 93100 Montreuil',
-      availability: true,
-      price_per_day: rand(50..100),
-      user: users.sample
-    )
+ninjaTurtle = Ride.create(
+  name: 'Greeny Ninja Turle',
+  category: 'Magical Creatures',
+  description: 'Ride Turtle Ninja Greeny. Greeny is a true clone from the tv-series. It has been created and brought to life by a scientist expert in creating magical creatures from movies and tv-series.',
+  address: '50, avenue Pasteur 93100 Montreuil',
+  availability: true,
+  price_per_day: rand(50..100),
+  user: users.sample
+)
 
 werewolf = Ride.create(
   name: 'Werewolf',

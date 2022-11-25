@@ -24,10 +24,18 @@
           <p><strong>Description :</strong>&nbsp;<%= @ride.description %></p>
         </div>
 
+
+  <div class="photo">
+    <% if @ride.photo.attached? %>
+      <%= cl_image_tag @ride.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1503914068268-5413b35b45ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
+    <% end %>
         <div class="address">
           <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
           <p><strong>Address :</strong>&nbsp;<%= @ride.address %></p>
         </div>
+
 
         <div class="avail">
           <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
