@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
+require "open-uri"
+
 
 # ride : nom, category, description, addresse, availability (default true), price_per_day, user_id
 puts "cleaning db"
@@ -363,15 +365,18 @@ tuktuk = Ride.create(
   photo: 'https://c8.alamy.com/compfr/fj1g4g/tuk-tuk-taxis-lisbonne-portugal-fj1g4g.jpg'
 )
 
-rocket = Ride.create(
+rocket = Ride.new(
   name: 'Super Rocket',
   category: 'Unusual vehicles',
   description: 'Ride a super dangerous unicycle. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh praesent tristique magna sit amet purus gravida quis. Et pharetra pharetra massa massa ultricies. Suspendisse potenti nullam ac tortor. Leo integer malesuada nunc vel risus commodo. Volutpat odio facilisis mauris sit amet massa. Tristique nulla aliquet enim tortor at auctor urna nunc id. Adipiscing enim eu turpis egestas pretium aenean pharetra magna. Eu mi bibendum neque egestas congue quisque egestas. Purus semper eget duis at tellus at urna condimentum mattis. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Non tellus orci ac auctor augue mauris augue neque. Bibendum est ultricies integer quis auctor elit sed. Tellus cras adipiscing enim eu turpis egestas pretium aenean pharetra.',
   address: '2, rue de la fontaine au roi 75011 Paris',
   availability: true,
   price_per_day: rand(50..100),
-  user: users.sample,
-  photo: 'https://cdn.mos.cms.futurecdn.net/qTmvroik2NtHVGsfCHyyxF-1200-80.jpg'
+  user: users.sample
 )
+rocket.photo.attach(io: URI.open("https://product-image.juniqe-production.juniqe.com/media/catalog/product/seo-cache/x800/642/28/642-28-301X__CENTER/Rocket-Paul-Fuentes-Impression-sur-toile.jpg"), filename: "rocket.png", content_type: 'image/png')
+rocket.save
+
+
 
 puts 'finished !!'
