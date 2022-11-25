@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "flatpickr/dist/themes/material_green.css";
 @import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
 
 // Your CSS partials
@@ -14,5 +15,6 @@
 
 .wrapper {
   min-height: calc(100vh - 50px - 100px);
+  margin-top: 50px;
   background-image: linear-gradient(45deg, rgba(0, 235, 158, 0.15), rgba(0, 198, 242, 0.15));
 }

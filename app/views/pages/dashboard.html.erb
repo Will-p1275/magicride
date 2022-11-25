@@ -26,7 +26,7 @@
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
                     <h2><%= my_request.ride.name  %></h2>
-                    <p><%= my_request.ride.category  %> - <strong>€ <%= my_request.total_price  %></strong></p>
+                    <p><%= my_request.ride.category  %> - <strong>Total: € <%= my_request.total_price  %></strong></p>
                   </div>
                   <% if my_request.status == 'pending' %>
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> ?
@@ -57,7 +57,7 @@
                     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                     <div class="card-product-infos">
                       <h2><%= my_booking.ride.name  %></h2>
-                      <p><%= my_booking.ride.category  %> - <strong>€ <%= my_booking.total_price  %></strong></p>
+                      <p><%= my_booking.ride.category  %> - <strong>Total: € <%= my_booking.total_price  %></strong></p>
                     </div>
                     <% if my_booking.status == 'pending' %>
                       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> ?
@@ -87,7 +87,7 @@
                   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                   <div class="card-product-infos">
                     <h2><%= my_ride.name  %></h2>
-                    <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %></strong></p>
+                    <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %> /day</strong></p>
                   </div>
                 </div>
             <% end %>
