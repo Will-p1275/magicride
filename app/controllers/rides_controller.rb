@@ -33,6 +33,7 @@ class RidesController < ApplicationController
 
   def show
     authorize @ride
+    
   end
 
   def edit
