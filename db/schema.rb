@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_162618) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_25_095857) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162618) do
     t.date "starting_date"
     t.date "end_date"
     t.float "total_price"
-    t.string "status", default: "pending"
+    t.boolean "status"
     t.bigint "user_id", null: false
     t.bigint "ride_id", null: false
     t.datetime "created_at", null: false
@@ -60,13 +60,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162618) do
     t.string "category"
     t.text "description"
     t.string "address"
-    t.boolean "availability", default: false
+    t.boolean "availability"
     t.float "price_per_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
     t.index ["user_id"], name: "index_rides_on_user_id"
   end
 
