@@ -198,7 +198,6 @@ awing = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/frstarwars/images/7/7a/A-Wing_RZ-2_BF2.png/revision/latest?cb=20171203154741'
 )
 awing.photo.attach(io: URI.open("https://static.wikia.nocookie.net/frstarwars/images/7/7a/A-Wing_RZ-2_BF2.png/revision/latest?cb=20171203154741"), filename: "rocket.png", content_type: 'image/png')
 awing.save
