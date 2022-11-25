@@ -16,29 +16,31 @@
             <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Sign in", new_user_session_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
             <%if current_user %>
               <p class="nav-link"><%=current_user.username %></p>
             <% end %>
           </li>
 
+          <% unless user_signed_in? %>
+            <li class="nav-item">
+              <p class="nav-link"><%= link_to "Sign in", new_user_session_path, data: { turbo_method: :get}, class: "dropdown-item" %></p>
+            </li>
+          <% end %>
+
           <li class="nav-item dropdown">
             <% if user_signed_in? %>
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class:"avatar-navbar", height: 40, width: 40, aria:{haspopup:true, expanded:false}, data: {bs_toggle:"dropdown"}%>
+              <% elsif current_user.image_url.present? %>
+                <img src="<%= current_user.image_url %>" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="avatar-navbar" />
               <% else %>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="card-trip-user avatar-bordered" />
+                <img src="https://www.bebegavroche.com/media/catalog/product/cache/1/thumbnail/1200x/040ec09b1e35df139433887a97daa66f/s/t/stickers-repositionnable-mon-petit-poney-arc-en-ciel-exemple.jpg" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="avatar-navbar" />
               <% end %>
-            <% else %>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="card-trip-user avatar-bordered" />
-            <% end %>
-            <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars.githubusercontent.com/u/115219328?v=4" /> %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%# <a class="dropdown-item" href="#">Action</a> %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
+            <% else %>
+              <img src="https://www.bebegavroche.com/media/catalog/product/cache/1/thumbnail/1200x/040ec09b1e35df139433887a97daa66f/s/t/stickers-repositionnable-mon-petit-poney-arc-en-ciel-exemple.jpg" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="avatar-navbar" />
+            <% end %>
           </li>
           <!--li class="nav-item"-->
           <!--/li-->

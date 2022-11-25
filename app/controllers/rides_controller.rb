@@ -33,6 +33,7 @@ class RidesController < ApplicationController
 
   def show
     authorize @ride
+    @booking = Booking.new
   end
 
   def edit
