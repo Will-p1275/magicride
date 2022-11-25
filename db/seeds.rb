@@ -54,8 +54,9 @@ unicorn = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://www.superprof.fr/blog/wp-content/uploads/2021/03/dessin-illustration-licorne.jpg'
 )
+unicorn.photo.attach(io: URI.open("https://www.superprof.fr/blog/wp-content/uploads/2021/03/dessin-illustration-licorne.jpg"), filename: "rocket.png", content_type: 'image/png')
+unicorn.save
 
 dragon = Ride.create(
   name: 'Dragon Fire',
@@ -65,8 +66,9 @@ dragon = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://m.media-amazon.com/images/I/61+FHcqEOYL.jpg'
 )
+dragon.photo.attach(io: URI.open("https://m.media-amazon.com/images/I/61+FHcqEOYL.jpg"), filename: "rocket.png", content_type: 'image/png')
+dragon.save
 
 troll = Ride.create(
   name: 'Troll Out',
@@ -76,8 +78,9 @@ troll = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://p.turbosquid.com/ts-thumb/Qv/Vx9E3b/LO/p2.jpgdff35091b4d14345a606d2f18e4d47d1zoom/jpg/1651332373/600x600/fit_q87/16ce572e89a392623925200466eb8a6bc4c5c82d/p2.jpgdff35091b4d14345a606d2f18e4d47d1zoom.jpg'
 )
+troll.photo.attach(io: URI.open("https://p.turbosquid.com/ts-thumb/Qv/Vx9E3b/LO/p2.jpgdff35091b4d14345a606d2f18e4d47d1zoom/jpg/1651332373/600x600/fit_q87/16ce572e89a392623925200466eb8a6bc4c5c82d/p2.jpgdff35091b4d14345a606d2f18e4d47d1zoom.jpg"), filename: "rocket.png", content_type: 'image/png')
+troll.save
 
 ninjaTurtle = Ride.create(
   name: 'Greeny Ninja Turle',
@@ -87,8 +90,9 @@ ninjaTurtle = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://fr.web.img6.acsta.net/newsv7/20/07/01/12/28/1133031.jpg'
 )
+ninjaTurtle.photo.attach(io: URI.open("https://fr.web.img6.acsta.net/newsv7/20/07/01/12/28/1133031.jpg"), filename: "rocket.png", content_type: 'image/png')
+ninjaTurtle.save
 
 werewolf = Ride.create(
   name: 'Werewolf',
@@ -98,8 +102,9 @@ werewolf = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/underworld/images/5/59/Kiki.jpg/revision/latest?cb=20110215181201&path-prefix=fr'
 )
+werewolf.photo.attach(io: URI.open("https://static.wikia.nocookie.net/underworld/images/5/59/Kiki.jpg/revision/latest?cb=20110215181201&path-prefix=fr"), filename: "rocket.png", content_type: 'image/png')
+werewolf.save
 
 sombral = Ride.create(
   name: 'Sombral Sad',
@@ -109,8 +114,9 @@ sombral = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/harrypotter/images/6/6c/Sombral_2.jpg/revision/latest/scale-to-width-down/799?cb=20100122210256&path-prefix=fr'
 )
+sombral.photo.attach(io: URI.open("https://static.wikia.nocookie.net/harrypotter/images/6/6c/Sombral_2.jpg/revision/latest/scale-to-width-down/799?cb=20100122210256&path-prefix=fr"), filename: "rocket.png", content_type: 'image/png')
+sombral.save
 
 totoro = Ride.create(
   name: 'Totoro',
@@ -120,8 +126,9 @@ totoro = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://cdn.suwalls.com/wallpapers/anime/my-neighbor-totoro-27257-1920x1080.jpg'
 )
+totoro.photo.attach(io: URI.open("https://cdn.suwalls.com/wallpapers/anime/my-neighbor-totoro-27257-1920x1080.jpg"), filename: "rocket.png", content_type: 'image/png')
+totoro.save
 
 noface = Ride.create(
   name: 'NoFace',
@@ -131,8 +138,9 @@ noface = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf8G-SqaVPoC8C4ZTucYEoYpjA1XnVvKVqNA&usqp=CAU'
 )
+noface.photo.attach(io: URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRf8G-SqaVPoC8C4ZTucYEoYpjA1XnVvKVqNA&usqp=CAU"), filename: "rocket.png", content_type: 'image/png')
+noface.save
 
 hedwige = Ride.create(
   name: 'Howl Hedwige',
@@ -142,8 +150,9 @@ hedwige = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://focus.courrierinternational.com/2022/02/05/0/0/1364/588/1280/0/60/0/013ba7c_1644060202638-hedwige.jpg'
 )
+hedwige.photo.attach(io: URI.open("https://focus.courrierinternational.com/2022/02/05/0/0/1364/588/1280/0/60/0/013ba7c_1644060202638-hedwige.jpg"), filename: "rocket.png", content_type: 'image/png')
+hedwige.save
 
 nazgul = Ride.create(
   name: 'Nazgul',
@@ -153,8 +162,9 @@ nazgul = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://i.pinimg.com/550x/5c/1b/2b/5c1b2b7748bf1a7f943c351eab636f3b.jpg'
 )
+nazgul.photo.attach(io: URI.open("https://i.pinimg.com/550x/5c/1b/2b/5c1b2b7748bf1a7f943c351eab636f3b.jpg"), filename: "rocket.png", content_type: 'image/png')
+nazgul.save
 
 superDestroyer = Ride.create(
   name: 'Super Destroyer Executor',
@@ -164,8 +174,9 @@ superDestroyer = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/frstarwars/images/3/30/Executor_BF2.png/revision/latest?cb=20210516202820'
 )
+superDestroyer.photo.attach(io: URI.open("https://static.wikia.nocookie.net/frstarwars/images/3/30/Executor_BF2.png/revision/latest?cb=20210516202820"), filename: "rocket.png", content_type: 'image/png')
+superDestroyer.save
 
 snowspeeder = Ride.create(
   name: 'Snowspeeder',
@@ -175,8 +186,9 @@ snowspeeder = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://c-3d.niceshops.com/upload/image/product/large/default/12330_fb2b67f9.jpg'
 )
+snowspeeder.photo.attach(io: URI.open("https://c-3d.niceshops.com/upload/image/product/large/default/12330_fb2b67f9.jpg"), filename: "rocket.png", content_type: 'image/png')
+snowspeeder.save
 
 awing = Ride.create(
   name: 'A-Wing RZ-1',
@@ -188,6 +200,8 @@ awing = Ride.create(
   user: users.sample,
   photo: 'https://static.wikia.nocookie.net/frstarwars/images/7/7a/A-Wing_RZ-2_BF2.png/revision/latest?cb=20171203154741'
 )
+awing.photo.attach(io: URI.open("https://static.wikia.nocookie.net/frstarwars/images/7/7a/A-Wing_RZ-2_BF2.png/revision/latest?cb=20171203154741"), filename: "rocket.png", content_type: 'image/png')
+awing.save
 
 nebulon = Ride.create(
   name: 'Nebulon-B Fregate',
@@ -197,8 +211,9 @@ nebulon = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://lumiere-a.akamaihd.net/v1/images/nebulon-b-frigate_dce53bc2.jpeg?region=0%2C0%2C1181%2C664&width=960'
 )
+nebulon.photo.attach(io: URI.open("https://lumiere-a.akamaihd.net/v1/images/nebulon-b-frigate_dce53bc2.jpeg?region=0%2C0%2C1181%2C664&width=960"), filename: "rocket.png", content_type: 'image/png')
+nebulon.save
 
 constellation = Ride.create(
   name: 'Constellation',
@@ -208,8 +223,9 @@ constellation = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/startrek/images/9/95/StargazerReunion.jpg/revision/latest?cb=20180422014342'
 )
+constellation.photo.attach(io: URI.open("https://static.wikia.nocookie.net/startrek/images/9/95/StargazerReunion.jpg/revision/latest?cb=20180422014342"), filename: "rocket.png", content_type: 'image/png')
+constellation.save
 
 republic = Ride.create(
   name: 'Republic',
@@ -219,8 +235,9 @@ republic = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/135cb28c-5b2b-4d6f-8715-e938fd4de8b2/de75att-969f0602-fe94-4d99-8ce8-db807c8cae14.png/v1/fill/w_1024,h_576,q_80,strp/star_trek__republic_class_federation_starship_by_stingra_de75att-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEzNWNiMjhjLTViMmItNGQ2Zi04NzE1LWU5MzhmZDRkZThiMlwvZGU3NWF0dC05NjlmMDYwMi1mZTk0LTRkOTktOGNlOC1kYjgwN2M4Y2FlMTQucG5nIiwiaGVpZ2h0IjoiPD01NzYiLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC8xMzVjYjI4Yy01YjJiLTRkNmYtODcxNS1lOTM4ZmQ0ZGU4YjJcL3N0aW5ncmEtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.n_qriX3IJR439DZFxNpOiQ-8O_oZC9KaH0LQ5fPVcrE'
 )
+republic.photo.attach(io: URI.open("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/135cb28c-5b2b-4d6f-8715-e938fd4de8b2/de75att-969f0602-fe94-4d99-8ce8-db807c8cae14.png/v1/fill/w_1024,h_576,q_80,strp/star_trek__republic_class_federation_starship_by_stingra_de75att-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEzNWNiMjhjLTViMmItNGQ2Zi04NzE1LWU5MzhmZDRkZThiMlwvZGU3NWF0dC05NjlmMDYwMi1mZTk0LTRkOTktOGNlOC1kYjgwN2M4Y2FlMTQucG5nIiwiaGVpZ2h0IjoiPD01NzYiLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS53YXRlcm1hcmsiXSwid21rIjp7InBhdGgiOiJcL3dtXC8xMzVjYjI4Yy01YjJiLTRkNmYtODcxNS1lOTM4ZmQ0ZGU4YjJcL3N0aW5ncmEtNC5wbmciLCJvcGFjaXR5Ijo5NSwicHJvcG9ydGlvbnMiOjAuNDUsImdyYXZpdHkiOiJjZW50ZXIifX0.n_qriX3IJR439DZFxNpOiQ-8O_oZC9KaH0LQ5fPVcrE"), filename: "rocket.png", content_type: 'image/png')
+republic.save
 
 enterprise = Ride.create(
   name: 'Enterprise',
@@ -230,8 +247,9 @@ enterprise = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://www.lemagducine.fr/wp-content/uploads/2014/06/Star-Trek-Enterprise-critique-series.jpg'
 )
+enterprise.photo.attach(io: URI.open("https://www.lemagducine.fr/wp-content/uploads/2014/06/Star-Trek-Enterprise-critique-series.jpg"), filename: "rocket.png", content_type: 'image/png')
+enterprise.save
 
 voyager = Ride.create(
   name: 'Voyager',
@@ -241,8 +259,9 @@ voyager = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/memoryalpha/images/5/57/Voyager-arri%C3%A8re.jpg/revision/latest?cb=20070702161926&path-prefix=fr'
 )
+voyager.photo.attach(io: URI.open("https://static.wikia.nocookie.net/memoryalpha/images/5/57/Voyager-arri%C3%A8re.jpg/revision/latest?cb=20070702161926&path-prefix=fr"), filename: "rocket.png", content_type: 'image/png')
+voyager.save
 
 excalibur = Ride.create(
   name: 'Excalibur',
@@ -252,8 +271,9 @@ excalibur = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.wikia.nocookie.net/stexpanded/images/a/a7/Excalibur.jpg/revision/latest?cb=20080327044217'
 )
+excalibur.photo.attach(io: URI.open("https://static.wikia.nocookie.net/stexpanded/images/a/a7/Excalibur.jpg/revision/latest?cb=20080327044217"), filename: "rocket.png", content_type: 'image/png')
+excalibur.save
 
 yorktown = Ride.create(
   name: 'Yorktown',
@@ -263,8 +283,9 @@ yorktown = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://s3.amazonaws.com/files.enjin.com/305813/modules/wiki/34020820/USS_Yorktown_%2898300%29.png'
 )
+yorktown.photo.attach(io: URI.open("https://s3.amazonaws.com/files.enjin.com/305813/modules/wiki/34020820/USS_Yorktown_%2898300%29.png"), filename: "rocket.png", content_type: 'image/png')
+yorktown.save
 
 canoe = Ride.create(
   name: 'Canoe redspeed',
@@ -274,8 +295,9 @@ canoe = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://api.wbez.org/v2/images/5c1f164c-d15c-42ae-b94f-b992bf1f6006.jpg?width=1600&height=1066&mode=FILL'
 )
+canoe.photo.attach(io: URI.open("https://api.wbez.org/v2/images/5c1f164c-d15c-42ae-b94f-b992bf1f6006.jpg?width=1600&height=1066&mode=FILL"), filename: "rocket.png", content_type: 'image/png')
+canoe.save
 
 balloon = Ride.create(
   name: 'Hot Air Ballon',
@@ -285,8 +307,9 @@ balloon = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://media.smartbox.com/pim/1000001967971201770883.jpg'
 )
+balloon.photo.attach(io: URI.open("https://media.smartbox.com/pim/1000001967971201770883.jpg"), filename: "rocket.png", content_type: 'image/png')
+balloon.save
 
 unicycle = Ride.create(
   name: 'Unicycle ME',
@@ -296,8 +319,9 @@ unicycle = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.fnac-static.com/multimedia/Images/A3/A3/C4/2F/3130531-3-1520-2/tsp20201203164902/Monocycle-Qu-Ax-Luxus-20-Chrome.jpg'
 )
+unicycle.photo.attach(io: URI.open("https://static.fnac-static.com/multimedia/Images/A3/A3/C4/2F/3130531-3-1520-2/tsp20201203164902/Monocycle-Qu-Ax-Luxus-20-Chrome.jpg"), filename: "rocket.png", content_type: 'image/png')
+unicycle.save
 
 carriage = Ride.create(
   name: 'Unicycle ME',
@@ -307,8 +331,9 @@ carriage = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://thumbs.dreamstime.com/z/carrosse-%C3%A0-cheval-vue-arri%C3%A8re-d-une-cal%C3%A8che-traditionnelle-de-l-%C3%A9poque-victorienne-ferm%C3%A9e-avec-deux-chevaux-noirs-sur-all%C3%A9e-161676204.jpg'
 )
+carriage.photo.attach(io: URI.open("https://thumbs.dreamstime.com/z/carrosse-%C3%A0-cheval-vue-arri%C3%A8re-d-une-cal%C3%A8che-traditionnelle-de-l-%C3%A9poque-victorienne-ferm%C3%A9e-avec-deux-chevaux-noirs-sur-all%C3%A9e-161676204.jpg"), filename: "rocket.png", content_type: 'image/png')
+carriage.save
 
 hangglider = Ride.create(
   name: 'Hang-Glider',
@@ -318,8 +343,9 @@ hangglider = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://static.sciencelearn.org.nz/images/images/000/000/301/embed/FLT_LKC_ART_04_Hanggliders_HandGlider.jpg?1522293665'
 )
+hangglider.photo.attach(io: URI.open("https://static.sciencelearn.org.nz/images/images/000/000/301/embed/FLT_LKC_ART_04_Hanggliders_HandGlider.jpg?1522293665"), filename: "rocket.png", content_type: 'image/png')
+hangglider.save
 
 tractor = Ride.create(
   name: 'Tractor',
@@ -329,8 +355,9 @@ tractor = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDOaN6-uk8mJbuucuQCDOnCDSHELWMRsDDSBbLNm4pidI1H_kXsyxW2PuNdYnm7p12nX4&usqp=CAU'
 )
+tractor.photo.attach(io: URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDOaN6-uk8mJbuucuQCDOnCDSHELWMRsDDSBbLNm4pidI1H_kXsyxW2PuNdYnm7p12nX4&usqp=CAU"), filename: "rocket.png", content_type: 'image/png')
+tractor.save
 
 barge = Ride.create(
   name: 'Barge',
@@ -340,8 +367,9 @@ barge = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://parispeniches.fr/wp-content/uploads/2020/08/peniche_albatros_img1-1.jpg'
 )
+barge.photo.attach(io: URI.open("https://parispeniches.fr/wp-content/uploads/2020/08/peniche_albatros_img1-1.jpg"), filename: "rocket.png", content_type: 'image/png')
+barge.save
 
 sidecar = Ride.create(
   name: 'Sidecar',
@@ -351,8 +379,9 @@ sidecar = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://www.lac-annecy.com/cache/images/11855334_apidae-ficheGallery.jpg'
 )
+sidecar.photo.attach(io: URI.open("https://www.lac-annecy.com/cache/images/11855334_apidae-ficheGallery.jpg"), filename: "rocket.png", content_type: 'image/png')
+sidecar.save
 
 tuktuk = Ride.create(
   name: 'Tuk-Tuk',
@@ -362,8 +391,9 @@ tuktuk = Ride.create(
   availability: true,
   price_per_day: rand(50..100),
   user: users.sample,
-  photo: 'https://c8.alamy.com/compfr/fj1g4g/tuk-tuk-taxis-lisbonne-portugal-fj1g4g.jpg'
 )
+tuktuk.photo.attach(io: URI.open("https://c8.alamy.com/compfr/fj1g4g/tuk-tuk-taxis-lisbonne-portugal-fj1g4g.jpg"), filename: "rocket.png", content_type: 'image/png')
+tuktuk.save
 
 rocket = Ride.new(
   name: 'Super Rocket',
