@@ -1,16 +1,14 @@
+
 <div class="container show-cont">
   <i class="fa-solid fa-arrow-left"></i>
   <%= link_to "Back to the rides", rides_path, class: "btn_not_important" %>
   <% if @ride.category == "Spaceships" %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1639262498805-17c7dc422d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)"">
-    <% elsif @ride.category == "Magical Creatures" %>
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/2650468/pexels-photo-2650468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); background-position: top -245px left -55px;">
-    <% else %>
-  </div>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)">
-    <% end %>
-  </div>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1639262498805-17c7dc422d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)"></div>
+  <% elsif @ride.category == "Magical Creatures" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/2650468/pexels-photo-2650468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); background-position: top -245px left -55px;"></div>
+  <% else %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)"></div>
+  <% end %>
 
   <h1 class="show"><%= @ride.name %></h1>
   <div class="container-col d-flex justify-content-center align-items-center">
@@ -46,6 +44,7 @@
       </div>
     </div>
   </div>
+
   <%unless @ride.user == current_user %>
     <div class="form mt-5 mx-auto">
       <h2>Book your ride</h2>
@@ -83,9 +82,5 @@
     <ul><%= link_to "Delete this ride", @ride, method: :delete, class: "btn_not_important", data: { turbo_method: :delete, turbo_confirm: "Are you sure ?"} if policy(@ride).destroy? %></ul>
     <% end %>
   </li>
-</div>
 
-<%= link_to "bla", rides_path, class: "space-bottom" %>
-<br>
-<%= link_to "bla", rides_path, class: "space-bottom" %>
-<br>
+</div>
