@@ -6,55 +6,28 @@
   <div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My Requests</button>
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My Bookings</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My Bookings</button>
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">My Rides</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">My Rides</button>
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">My Requests</button>
       </li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
         <div class="cards-product mt-5 mb-5">
-          <% @my_requests.each do |my_request| %>
-            <%= link_to ride_booking_path(my_request.ride_id, my_request.id) do %>
-              <div class="position-relative">
-                <div class="card-product">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-                  <div class="card-product-infos">
-                    <h2><%= my_request.ride.name  %></h2>
-                    <p><%= my_request.ride.category  %> - <strong>Total: € <%= my_request.total_price  %></strong></p>
-                  </div>
-                  <% if my_request.status == 'pending' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"><i class="fa-solid fa-question"></i>
-                        <span class="visually-hidden">validated</span>
-                      </span>
-                    <% elsif my_request.status == 'accepted' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"><i class="fa-solid fa-check"></i>
-                        <span class="visually-hidden">validated</span>
-                      </span>
-                    <% elsif my_request.status == 'refused' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><i class="fa-solid fa-xmark"></i>
-                        <span class="visually-hidden">validated</span>
-                      </span>
-                    <% end %>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <div class="cards-product mt-5 mb-5">
           <% @my_bookings.each do |my_booking| %>
             <div class="position-relative">
               <%= link_to ride_booking_path(my_booking.ride_id, my_booking.id) do %>
                   <div class="card-product">
-                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <% if my_booking.ride.photo.attached? %>
+                    <%= cl_image_tag my_booking.ride.photo.key, height: 300, width: 400, class: "photo" %>
+                    <% else %>
+                      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                    <% end %>
                     <div class="card-product-infos">
                       <h2><%= my_booking.ride.name  %></h2>
                       <p><%= my_booking.ride.category  %> - <strong>Total: € <%= my_booking.total_price  %></strong></p>
@@ -79,17 +52,56 @@
         </div>
       </div>
 
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <div class="cards-product mt-5 mb-5">
           <% @my_rides.each do |my_ride| %>
             <%= link_to ride_path(my_ride) do %>
                 <div class="card-product">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <% if my_ride.photo.attached? %>
+                    <%= cl_image_tag my_ride.photo.key, height: 300, width: 400, class: "photo" %>
+                  <% else %>
+                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <% end %>
                   <div class="card-product-infos">
                     <h2><%= my_ride.name  %></h2>
                     <p><%= my_ride.category  %> - <strong>€ <%= my_ride.price_per_day  %> /day</strong></p>
                   </div>
                 </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="cards-product mt-5 mb-5">
+          <% @my_requests.each do |my_request| %>
+            <%= link_to ride_booking_path(my_request.ride_id, my_request.id) do %>
+              <div class="position-relative">
+                <div class="card-product">
+                  <% if my_request.ride.photo.attached? %>
+                  <%= cl_image_tag my_request.ride.photo.key, height: 300, width: 400, class: "photo" %>
+                  <% else %>
+                    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                  <% end %>
+                  <div class="card-product-infos">
+                    <h2><%= my_request.ride.name  %></h2>
+                    <p><%= my_request.ride.category  %> - <strong>Total: € <%= my_request.total_price  %></strong></p>
+                  </div>
+                  <% if my_request.status == 'pending' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"><i class="fa-solid fa-question"></i>
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% elsif my_request.status == 'accepted' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"><i class="fa-solid fa-check"></i>
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% elsif my_request.status == 'refused' %>
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><i class="fa-solid fa-xmark"></i>
+                        <span class="visually-hidden">validated</span>
+                      </span>
+                    <% end %>
+                </div>
+              </div>
             <% end %>
           <% end %>
         </div>

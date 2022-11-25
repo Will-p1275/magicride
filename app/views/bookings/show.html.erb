@@ -1,35 +1,52 @@
-<div class="container">
+<div class="container show-cont">
+  <i class="fa-solid fa-arrow-left"></i>
+  <%= link_to "Back to the dashboard", dashboard_path, class: "btn_not_important" %>
+  <% if @ride.category == "Spaceships" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1639262498805-17c7dc422d37?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)"></div>
+  <% elsif @ride.category == "Magical Creatures" %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/2650468/pexels-photo-2650468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2); background-position: top -245px left -55px;"></div>
+  <% else %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.pexels.com/photos/36487/above-adventure-aerial-air.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)"></div>
+  <% end %>
 
-<i class="fa-solid fa-arrow-left"></i>
-    <%= link_to "Back to the dashboard", dashboard_path, class: "btn_not_important" %>
+  <h1 class="show"><%= @ride.name %></h1>
+  <div class="container-col d-flex justify-content-center align-items-center">
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 one-col">
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://plus.unsplash.com/premium_photo-1664298030301-94b00217fbec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1771&q=80)">
-    <h1 class="show"><%= @ride.name %></h1>
-    <br>
-  </div>
+        <div class="cat">
+          <p><strong>Category :</strong>  <%= @ride.category %></p>
+        </div>
 
-  <div class="cat">
-    <p><strong>Category :</strong>  <%= @ride.category %></p>
-  </div>
+        <div class="desc">
+          <p><strong>Description :</strong><%= @ride.description %></p>
+        </div>
 
-  <div class="desc">
-    <p><strong>Description :</strong><%= @ride.description %></p>
-  </div>
+        <div class="address">
+          <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
+          <p><strong>Address :</strong><%= @ride.address %></p>
+        </div>
 
-  <div class="address">
-    <i class="fa-solid fa-location-dot"></i>&nbsp;&nbsp;
-    <p><strong>Address :</strong><%= @ride.address %></p>
-  </div>
+        <div class="avail">
+          <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
+          <p><strong>Starting date :</strong><%= @booking.starting_date %> - <strong>Ending date :</strong><%= @booking.end_date %></p>
+        </div>
 
-  <div class="avail">
-    <i class="fa-regular fa-calendar-days"></i>&nbsp;&nbsp;
-    <p><strong>Starting date :</strong><%= @booking.starting_date %> - <strong>Ending date :</strong><%= @booking.end_date %></p>
-  </div>
-
-  <div class="price">
-    <i class="fa-solid fa-coins"></i>&nbsp;&nbsp;
-    <p><strong>Total price :</strong><%= @booking.total_price %>€</p>
-  </div>
+        <div class="price">
+          <i class="fa-solid fa-coins"></i>&nbsp;&nbsp;
+          <p><strong>Total price :</strong><%= @booking.total_price %>€</p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="photo">
+          <% if @ride.photo.attached? %>
+            <%= cl_image_tag @ride.photo.key, height: 150, width: 200, crop: :fill %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1503914068268-5413b35b45ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" style='height: 100%; width: 100%; object-fit: contain; border-radius: 8px;'/>
+          <% end %>
+        </div>
+      </div>
+    </div>
 
   <li>
     <ul><%= link_to "Accept this booking", accept_path(@booking), class: "btn_not_important", data: { turbo_method: :patch, turbo_confirm: "Are you sure?" } if policy(@booking).accept? %></ul>
