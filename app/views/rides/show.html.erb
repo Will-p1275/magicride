@@ -63,9 +63,11 @@
 
 
 <%unless @ride.user == current_user %>
-<div class="d-flex justify-content-center align-items-center">
-  <%= link_to "Let's ride it", new_ride_booking_path(@ride),class:"btn_gradient btn_imp" %>
-</div>
+  <div class="d-flex justify-content-center align-items-center">
+    <%= link_to "Let's ride it", new_ride_booking_path(@ride),class:"btn_gradient btn_imp" %>
+  </div>
+
+
 <% end %>
 
   <li>

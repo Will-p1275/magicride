@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_ride, only: [:new, :create, :show]
 
   def new
+    @booking = Booking.new
     authorize @booking
   end
 
