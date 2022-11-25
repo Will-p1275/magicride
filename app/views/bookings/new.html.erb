@@ -4,7 +4,7 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-8 col-lg-6">
     <div id="booking-container">
-      <h2>Create a new booking</h2>
+      <h2>Book your ride</h2>
       <%= simple_form_for [@ride, @booking],
                     html: {
                       data: {
@@ -25,7 +25,7 @@
                       flatpickr_target: 'endDateInput'
                     }
                   } %>
-      <%= f.button :submit, class: "btn_gradient" %>
+      <%= f.button :submit, class: "btn_gradient", %>
       <% end %>
 
     </div>
