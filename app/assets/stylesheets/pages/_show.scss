@@ -5,7 +5,7 @@
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +30,7 @@ h3 {
 
 .desc {
   display: flex;
+  text-align: justify;
 }
 
 .address {
@@ -64,10 +65,36 @@ ul {
 }
 
 .show {
-  color: white;
+  color: #233E8B;
+  padding: 15px;
+  text-align: center;
 }
 
 .btn_imp {
   text-align: center;
-  width: 350px;
+  width: 500px;
+}
+
+.show-cont {
+  width: 1000px;
+  background-color: rgba(253, 249, 249, 0.4);
+  border-radius: 5px;
+  padding: 5px;
+  border: solid 1px rgba(220, 220, 220, 0.604);
+  box-shadow: 0 0 15px rgba(0, 0, 0 , 0.2);
+  padding: 10px;
+}
+
+.container-col {
+  padding: 15px;
+  margin: 15px;
+}
+
+.one-col {
+  padding: 15px;
+}
+.photo {
+  position: sticky;
+  top: 0px;
+  margin-top: 60px;
 }
