@@ -247,7 +247,7 @@ enterprise = Ride.create(
   price_per_day: rand(50..100),
   user: users.sample,
 )
-enterprise.photo.attach(io: URI.open("https://www.lemagducine.fr/wp-content/uploads/2014/06/Star-Trek-Enterprise-critique-series.jpg"), filename: "rocket.png", content_type: 'image/png')
+enterprise.photo.attach(io: URI.open("https://static.hitek.fr/img/actualite/2015/02/fb_uss-enterprise-a-quarter.webp"), filename: "rocket.png", content_type: 'image/png')
 enterprise.save
 
 voyager = Ride.create(
