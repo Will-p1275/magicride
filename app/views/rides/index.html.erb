@@ -21,7 +21,13 @@
               <%= link_to "details", ride_path(ride), class: "btn_gradient" %>
             </div>
             <h2 class="card-trip-pricing">€ <%= ride.price_per_day %></h2>
-            <img src="https://avatars.githubusercontent.com/u/106176972?v=4" class="card-trip-user avatar-bordered" />
+            <% if ride.user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class:"card-trip-user avatar-bordered", height: 40, width: 40 %>
+            <% elsif ride.user.image_url.present? %>
+              <img src="<%= ride.user.image_url %>" class="card-trip-user avatar-bordered" />
+            <% else %>
+              <img src="https://www.bebegavroche.com/media/catalog/product/cache/1/thumbnail/1200x/040ec09b1e35df139433887a97daa66f/s/t/stickers-repositionnable-mon-petit-poney-arc-en-ciel-exemple.jpg" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="card-trip-user avatar-bordered" />
+            <% end %>
           </div>
         </div>
       <% end %>

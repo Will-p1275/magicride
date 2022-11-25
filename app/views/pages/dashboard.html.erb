@@ -29,15 +29,15 @@
                     <p><%= my_request.ride.category  %> - <strong>Total: € <%= my_request.total_price  %></strong></p>
                   </div>
                   <% if my_request.status == 'pending' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> ?
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"><i class="fa-solid fa-question"></i>
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% elsif my_request.status == 'accepted' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> OK
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"><i class="fa-solid fa-check"></i>
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% elsif my_request.status == 'refused' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> NO
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><i class="fa-solid fa-xmark"></i>
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% end %>
@@ -60,15 +60,15 @@
                       <p><%= my_booking.ride.category  %> - <strong>Total: € <%= my_booking.total_price  %></strong></p>
                     </div>
                     <% if my_booking.status == 'pending' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"> ?
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning"><i class="fa-solid fa-question"></i>
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% elsif my_booking.status == 'accepted' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"> OK
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"><i class="fa-solid fa-check"></i>
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% elsif my_booking.status == 'refused' %>
-                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> NO
+                      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"><i class="fa-solid fa-xmark"></i>
                         <span class="visually-hidden">validated</span>
                       </span>
                     <% end %>

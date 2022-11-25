@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162618) do
     t.date "starting_date"
     t.date "end_date"
     t.float "total_price"
-    t.boolean "status"
+    t.string "status", default: "pending"
     t.bigint "user_id", null: false
     t.bigint "ride_id", null: false
     t.datetime "created_at", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162618) do
     t.string "category"
     t.text "description"
     t.string "address"
-    t.boolean "availability"
+    t.boolean "availability", default: false
     t.float "price_per_day"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
